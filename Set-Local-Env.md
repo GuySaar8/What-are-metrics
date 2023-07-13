@@ -1,3 +1,5 @@
+# Metrics
+
 ## Set local env for the hands-on exercise
 
 ```bash
