@@ -50,15 +50,15 @@ https://prometheus.io/docs/prometheus/latest/querying/functions/
 ### Q2 B - what does the returned value in Q2 means?
 
 ### Q3 - get all 2xx types of response code, for each type get the amount of requests that were recived by the microservice, filter out pods on namespace test, group by response code, namespace and pod
-try and use match expressions:
+try and use match expressions: \
 https://prometheus.io/docs/prometheus/latest/querying/basics/#:~:text=!%3D%3A%20Select%20labels%20that,match%20the%20provided%20string.
 
 ### Q4 - get the % of error rate (response codes: 5XX 404 and 400), group by pod
-try and use operators
+try and use operators: \
 https://prometheus.io/docs/prometheus/latest/querying/operators/
 
 ### Q5 - get the % of error rate (response codes: 5XX 404 and 400), in the last 5 min, group by pod
-try and use rate function:
+try and use rate function: \
 https://prometheus.io/docs/prometheus/latest/querying/functions/#rate
 
 ### Q6 - get memory limits of pod in MiB
