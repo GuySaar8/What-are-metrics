@@ -13,7 +13,7 @@ https://prometheus.io/docs/prometheus/latest/querying/functions/#rate \
 look at this Docs for more info and help:
 https://prometheus.io/docs/prometheus/latest/querying/functions/
 
-**A**: sum(rate(container_cpu_usage_seconds_total{}[5m])) by (pod)
+**A**: `sum(rate(container_cpu_usage_seconds_total{}[5m])) by (pod)`
 
 ### Q2 B - what does the returned value in Q2 means?
 
@@ -27,23 +27,23 @@ https://itnext.io/k8s-monitor-pod-cpu-and-memory-usage-with-prometheus-28eec6d84
 try and use match expressions: \
 https://prometheus.io/docs/prometheus/latest/querying/basics/#:~:text=!%3D%3A%20Select%20labels%20that,match%20the%20provided%20string.
 
-**A**: sum (http_requests_total{namespace != "test" ,status=~"2.*"}) by (namespace, status, pod)
+**A**: `sum(http_requests_total{namespace != "test" ,status=~"2.*"}) by (namespace, status, pod)`
 
 ### Q4 - get the % of error rate (response codes: 5XX 404 and 400), group by pod
 try and use operators: \
 https://prometheus.io/docs/prometheus/latest/querying/operators/
 
-**A**: (sum (http_requests_total{status=~"5.*"}) by (pod) + sum (http_requests_total{status=~"400"}) by (pod) + sum (http_requests_total{status=~"404"}) by (pod)) / sum (http_requests_total{}) by (pod) * 100
+**A**: `sum(http_requests_total{status=~"5.*|400|404"}) by (pod)/sum(http_requests_total{}) by (pod) * 100`
 
 ### Q5 - get the % of error rate (response codes: 5XX 404 and 400), in the last 5 min, group by pod
 try and use rate function: \
 https://prometheus.io/docs/prometheus/latest/querying/functions/#rate
 
-**A**: (sum(rate(http_requests_total{status=~"5.*"}[5m])) by (pod) + sum(rate(http_requests_total{status=~"400"}[5m])) by (pod) + sum(rate(http_requests_total{status=~"404"}[5m])) by (pod)) / sum(rate(http_requests_total{}[5m])) by (pod) * 100
+**A**: `sum(rate(http_requests_total{status=~"5.*|400|404"}[5m])) by (pod)/ sum(rate(http_requests_total{}[5m])) by (pod) * 100`
 
 ### Q6 - get memory limits of pod in MiB
 
-**A**: sum(kube_pod_container_resource_limits{resource="memory"}) by (pod) / 1000000 / 1.048576
+**A**: `sum(kube_pod_container_resource_limits{resource="memory"}) by (pod) / 1000000 / 1.048576`
 
 ### Q7 - get % of memory usage of pod in the last 10 min
 
