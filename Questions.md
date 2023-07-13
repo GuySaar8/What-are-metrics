@@ -37,12 +37,12 @@ http://localhost:9090
 ## Questions
 
 ### Q1 A - what is the cpu request and limit that was set for each pod, group results by pod, namesapce
-(request and limit are metrics values)
-look at this Docs for more info and help:
-https://prometheus.io/docs/prometheus/latest/querying/basics/
+look at this Docs for more info and help: \
+https://prometheus.io/docs/prometheus/latest/querying/basics/ \
+(request and limit are metrics values) \
 
 ### Q2 - what is the cpu usage seconds in the last 5 min, group by pod 
-try and use rate function:
+try and use rate function: \
 https://prometheus.io/docs/prometheus/latest/querying/functions/#rate \
 look at this Docs for more info and help:
 https://prometheus.io/docs/prometheus/latest/querying/functions/
