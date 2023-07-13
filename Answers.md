@@ -5,7 +5,7 @@ look at this Docs for more info and help: \
 https://prometheus.io/docs/prometheus/latest/querying/basics/ \
 (request and limit are metrics values)
 
-**A**: sum(kube_pod_container_resource_requests{resource="cpu"}) by (pod, namesapce) , sum(kube_pod_container_resource_limits{resource="cpu"}) by (pod, namesapce)
+**A**: `sum(kube_pod_container_resource_requests{resource="cpu"}) by (pod, namesapce) , sum(kube_pod_container_resource_limits{resource="cpu"}) by (pod, namesapce)`
 
 ### Q2 - what is the cpu usage seconds in the last 5 min, group by pod 
 try and use rate function: \
