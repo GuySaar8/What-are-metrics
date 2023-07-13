@@ -1,6 +1,6 @@
 # Metrics
 
-## Set local env
+## Set local env for the hands-on exercise
 
 ```bash
  k3d cluster create
