@@ -1,4 +1,4 @@
-## Questions
+## Answers
 
 ### Q1 A - what is the cpu request and limit that was set for each pod, group results by pod, namesapce
 look at this Docs for more info and help: \
