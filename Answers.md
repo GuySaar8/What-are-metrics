@@ -49,11 +49,11 @@ https://prometheus.io/docs/prometheus/latest/querying/functions/#rate
 
 ### Q7 - get % of memory usage of pod in the last 10 min
 
-**A**: (sum(rate(container_memory_usage_bytes[10m])) by (pod) -  sum(rate(container_memory_cache[10m])) by (pod)) /  sum(container_spec_memory_limit_bytes!=0) by (pod) * 100
+**A**: `(sum(rate(container_memory_usage_bytes[10m])) by (pod) -  sum(rate(container_memory_cache[10m])) by (pod)) /  sum(container_spec_memory_limit_bytes!=0) by (pod) * 100`
 
 or
 
-sum(rate(container_memory_working_set_bytes[10m])) by (pod) /  sum(container_spec_memory_limit_bytes!=0) by (pod) * 100
+`sum(rate(container_memory_working_set_bytes[10m])) by (pod) /  sum(container_spec_memory_limit_bytes!=0) by (pod) * 100`
 
 https://blog.freshtracks.io/a-deep-dive-into-kubernetes-metrics-part-3-container-resource-metrics-361c5ee46e66
 
